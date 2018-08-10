@@ -26,7 +26,8 @@ export default {
       default: ''
     },
     height: {
-      type: Number
+      type: Number,
+      default: 90
     }
   },
   data: function () {
@@ -96,7 +97,6 @@ export default {
           this.styler = `height: ${height}%`
         }
       }
-
     },
     getClientHeight: function () {
       const clientHeight = document.documentElement.clientHeight
