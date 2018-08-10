@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <p>动态组件</p>
     <component :is="parseComponet" :value="componentValue"></component>
   </div>
 </template>
@@ -8,6 +7,8 @@
 <script>
 import Markdown from './components/Markdown'
 import TextPreview from './components/TextPreview'
+// console.log(VDP)
+// Vue.use(VDP)
 
 export default {
   name: 'app',
