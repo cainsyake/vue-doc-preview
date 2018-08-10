@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <component :is="parseComponet" :value="componentValue"></component>
+    <component :is="parseComponet" :value="actualValue"></component>
   </div>
 </template>
 
 <script>
 import Markdown from './components/Markdown'
 import TextPreview from './components/TextPreview'
-// console.log(VDP)
-// Vue.use(VDP)
+import Office from './components/Office'
 
 export default {
   name: 'app',
   components: {
     Markdown,
-    TextPreview
+    TextPreview,
+    Office
   },
   props: {
     type: {
@@ -24,26 +24,36 @@ export default {
     value: {
       type: String,
       default: ''
-    },
-    url: {
-      type: String,
-      default: null
     }
   },
   data: function () {
     return {
-      parseComponet: 'Markdown',
-      mdString: '# Marked\n **success**\n```javascript\nconst a = 10\nfunction () {\n  console.log(a)\n}```',
-      textString: '排列数A(n, m) = n! / (n-m)!\n组合数C(n, m) = A(n, m) / m!'
+      parseComponet: 'Markdown'
     }
   },
   computed: {
-    componentValue: function () {
-      if (this.type === 'md') {
-        return this.mdString
-      } else if (this.type === 'text') {
-        return this.textString
+    actualValue: function () {
+      if (this.isOfficeType) {
+        return `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
+      } else {
+        return this.value
       }
+    },
+    isOfficeType: function () {
+      const type = this.type
+      const officeTypes = [
+        'docx',
+        'pptx',
+        'xlsx'
+      ]
+      let result = false
+      for (let i = 0, l = officeTypes.length; i < l; i++) {
+        if (type === officeTypes[i]) {
+          result = true
+          break
+        }
+      }
+      return result
     }
   },
   mounted: function () {
@@ -54,9 +64,29 @@ export default {
       case 'text':
         this.parseComponet = 'TextPreview'
         break
+      case 'docx':
+        // this.officeView()
+        this.isOfficeType = true
+        this.parseComponet = 'Office'
+        break
+      case 'xlsx':
+        // this.officeView()
+        this.isOfficeType = true
+        this.parseComponet = 'Office'
+        break
+      case 'pptx':
+        // this.officeView()
+        this.isOfficeType = true
+        this.parseComponet = 'Office'
+        break
     }
   },
-  methods: {}
+  methods: {
+    officeView: function () {
+      const url = `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
+      window.open(url)
+    }
+  }
 }
 </script>
 
