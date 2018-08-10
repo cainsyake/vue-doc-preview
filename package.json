@@ -1,6 +1,6 @@
 {
   "name": "vue-doc-preview",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "description": "A vue document preview component",
   "keywords": [
     "document",
@@ -46,6 +46,8 @@
     "babel.config.js",
     "vue.config.js",
     "yarn.lock",
-    "LICENSE"
+    "LICENSE",
+    "README-CN.md",
+    "README.md"
   ]
 }
