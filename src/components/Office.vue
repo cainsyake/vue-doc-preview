@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <iframe :src="value" frameborder="0"></iframe>
+    <div style="height: 100%" ref="iframeContainer">
+      <iframe :src="value" frameborder="0" width="100%" height="100%"  id="officeIframe"></iframe>
     </div>
 </template>
 
@@ -11,6 +11,10 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    height: {
+      type: [String, Number],
+      default: 700
     }
   }
 }

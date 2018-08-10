@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="VueDocPreviewRoot" class="root" :style="styler">
     <component :is="parseComponet" :value="actualValue"></component>
   </div>
 </template>
@@ -24,21 +24,18 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    height: {
+      type: Number
     }
   },
   data: function () {
     return {
-      parseComponet: 'Markdown'
+      parseComponet: 'Markdown',
+      styler: ''
     }
   },
   computed: {
-    actualValue: function () {
-      if (this.isOfficeType) {
-        return `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
-      } else {
-        return this.value
-      }
-    },
     isOfficeType: function () {
       const type = this.type
       const officeTypes = [
@@ -54,6 +51,13 @@ export default {
         }
       }
       return result
+    },
+    actualValue: function () {
+      if (this.isOfficeType) {
+        return `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
+      } else {
+        return this.value
+      }
     }
   },
   mounted: function () {
@@ -65,30 +69,45 @@ export default {
         this.parseComponet = 'TextPreview'
         break
       case 'docx':
-        // this.officeView()
-        this.isOfficeType = true
         this.parseComponet = 'Office'
         break
       case 'xlsx':
-        // this.officeView()
-        this.isOfficeType = true
         this.parseComponet = 'Office'
         break
       case 'pptx':
-        // this.officeView()
-        this.isOfficeType = true
         this.parseComponet = 'Office'
         break
     }
+    this.setHeiht()
   },
   methods: {
-    officeView: function () {
-      const url = `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
-      window.open(url)
+    setHeiht: function () {
+      let height = this.height
+      if (height < 0) height = 0
+      if (height > 100) {
+        // height大于100时将视作固定高度，单位px
+        this.styler = `height: ${height}px`
+      } else {
+        // height小于等于100时为百分比高度
+        if (this.isOfficeType) {
+          const contentHeight = this.getClientHeight() * height / 100
+          this.styler = `height: ${contentHeight}px`
+        } else {
+          this.styler = `height: ${height}%`
+        }
+      }
+
+    },
+    getClientHeight: function () {
+      const clientHeight = document.documentElement.clientHeight
+      return clientHeight
     }
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+  .root {
+    height: 100%;
+  }
 </style>
