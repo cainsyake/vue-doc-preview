@@ -32,7 +32,7 @@ export default {
   data: function () {
     return {
       parseComponet: 'Markdown',
-      mdString: '# Marked\n **success**\n```javascript\nconst a = 10\nfunction () {console.log(a)}```',
+      mdString: '# Marked\n **success**\n```javascript\nconst a = 10\nfunction () {\n  console.log(a)\n}```',
       textString: '排列数A(n, m) = n! / (n-m)!\n组合数C(n, m) = A(n, m) / m!'
     }
   },

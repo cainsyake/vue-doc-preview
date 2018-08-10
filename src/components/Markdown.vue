@@ -1,13 +1,11 @@
 <template>
-    <div class="vm-markdown-html" v-html="content" v-highlight></div>
+    <div class="vm-markdown-html" v-html="content" ></div>
 </template>
 
 <script>
 import Marked from 'marked'
-import Highlight from '../lib/highlight'
-import Vue from 'vue'
+import HLJS from '../lib/highlight'
 
-Vue.use(Highlight)
 export default {
   name: 'Markdown',
   props: {
@@ -36,6 +34,7 @@ export default {
     this.$nextTick(() => {
       self.parseHtml()
     })
+    HLJS.highlightCode()
   },
   watch: {
     value: function (newVal) {
