@@ -21,6 +21,14 @@ export default {
   },
   watch: {
     value: function (val) {
+      this.updateContent(val)
+    }
+  },
+  mounted: function () {
+    this.updateContent(this.value)
+  },
+  methods: {
+    updateContent: function (val) {
       if (val) {
         const parseMarked = Marked(val)
         this.content = parseMarked
@@ -30,10 +38,8 @@ export default {
           HLJS.highlightCode()
         })
       }
-    }
-  },
-  methods: {
-    parseHtml () {
+    },
+    parseHtml: function () {
       let style = {
         ul: `
               margin: 10px 20px;
