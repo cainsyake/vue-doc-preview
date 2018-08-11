@@ -1,6 +1,6 @@
 <template>
   <div id="app" style="height: 100%">
-    <VueDocPreview :type="type" :value="mdString" :height="90" id="vdp"></VueDocPreview>
+    <VueDocPreview :type="type" :value="value" :height="90" id="vdp"></VueDocPreview>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   },
   data: function () {
     return {
-      type: 'md',
+      type: 'docx',
       value: 'newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx',
       mdString: '# Marked\n **success**\n```javascript\nconst a = 10\nfunction () {\n  console.log(a)\n}```',
       textString: '排列数A(n, m) = n! / (n-m)!\n组合数C(n, m) = A(n, m) / m!'

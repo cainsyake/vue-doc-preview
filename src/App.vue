@@ -36,6 +36,11 @@ export default {
       styler: ''
     }
   },
+  watch: {
+    type: function (val) {
+      this.updateType()
+    }
+  },
   computed: {
     isOfficeType: function () {
       const type = this.type
@@ -62,24 +67,7 @@ export default {
     }
   },
   mounted: function () {
-    switch (this.type) {
-      case 'md':
-        this.parseComponet = 'Markdown'
-        break
-      case 'text':
-        this.parseComponet = 'TextPreview'
-        break
-      case 'docx':
-        this.parseComponet = 'Office'
-        break
-      case 'xlsx':
-        this.parseComponet = 'Office'
-        break
-      case 'pptx':
-        this.parseComponet = 'Office'
-        break
-    }
-    this.setHeiht()
+    this.updateType()
   },
   methods: {
     setHeiht: function () {
@@ -101,6 +89,26 @@ export default {
     getClientHeight: function () {
       const clientHeight = document.documentElement.clientHeight
       return clientHeight
+    },
+    updateType: function () {
+      switch (this.type) {
+        case 'md':
+          this.parseComponet = 'Markdown'
+          break
+        case 'text':
+          this.parseComponet = 'TextPreview'
+          break
+        case 'docx':
+          this.parseComponet = 'Office'
+          break
+        case 'xlsx':
+          this.parseComponet = 'Office'
+          break
+        case 'pptx':
+          this.parseComponet = 'Office'
+          break
+      }
+      this.setHeiht()
     }
   }
 }

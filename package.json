@@ -1,6 +1,6 @@
 {
   "name": "vue-doc-preview",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A vue document preview component",
   "keywords": [
     "document",
@@ -10,8 +10,8 @@
   "main": "./dist/vueDocPreview.umd.min.js",
   "author": "cainsyake(cainsyake@qq.com)",
   "repository": {
-    "type" : "git"
-  , "url" : "https://github.com/cainsyake/vue-doc-preview.git"
+    "type" : "git",
+    "url" : "https://github.com/cainsyake/vue-doc-preview.git"
   },
   "bugs": {
     "url" : "https://github.com/cainsyake/vue-doc-preview/issues",
