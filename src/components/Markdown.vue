@@ -29,17 +29,11 @@ export default {
     }
   },
   mounted: function () {
-    // this.content = Marked(this.value)
     let self = this
     this.$nextTick(() => {
       self.parseHtml()
     })
     HLJS.highlightCode()
-  },
-  watch: {
-    value: function (newVal) {
-      this.content = Marked(this.value)
-    }
   },
   methods: {
     parseHtml () {
@@ -98,6 +92,9 @@ export default {
         td: `
               padding: 8px 30px;
               border-right: 1px solid #eee;
+            `,
+        code: `
+              background-color: #f2f2f2;
             `
       }
       let html = document.getElementsByClassName('vm-markdown-html')[0]
@@ -176,5 +173,8 @@ export default {
             padding: 8px 30px;
             border-right: 1px solid #eee;
         }
+      code{
+        background-color: #f2f2f2;
+      }
     }
 </style>
