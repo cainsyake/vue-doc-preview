@@ -1,4 +1,8 @@
 # vue-doc-preview
+一个基于Vue的文档预览组件，这个组件可以将文档的内容显示在页面上。
+
+[English Readme](https://github.com/cainsyake/vue-doc-preview/blob/master/README.md) | 中文说明书
+
 
 ## 使用
 首先, 通过yarn或npm等包管理工具添加这个包.

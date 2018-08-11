@@ -1,4 +1,7 @@
 # vue-doc-preview
+A vue document preview component, this component will display the contents of the document on the page.
+
+English Readme | [中文说明书](https://github.com/cainsyake/vue-doc-preview/blob/master/README-CN.md)
 
 ## Use
 First, add this package from yarn or npm.
