@@ -1,9 +1,10 @@
 {
   "name": "vue-doc-preview",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "A vue document preview component",
   "keywords": [
     "document",
+    "markdown",
     "preview"
   ],
   "main": "./dist/vueDocPreview.umd.min.js",

@@ -16,24 +16,21 @@ export default {
   },
   data: function () {
     return {
-
+      content: ' '
     }
   },
-  computed: {
-    content: function () {
-      if (this.value) {
-        return Marked(this.value)
-      } else {
-        return Marked('')
+  watch: {
+    value: function (val) {
+      if (val) {
+        const parseMarked = Marked(val)
+        this.content = parseMarked
+        let self = this
+        this.$nextTick(() => {
+          self.parseHtml()
+          HLJS.highlightCode()
+        })
       }
     }
-  },
-  mounted: function () {
-    let self = this
-    this.$nextTick(() => {
-      self.parseHtml()
-    })
-    HLJS.highlightCode()
   },
   methods: {
     parseHtml () {
