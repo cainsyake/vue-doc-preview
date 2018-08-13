@@ -101,12 +101,14 @@ export default {
             `
       }
       let html = document.getElementsByClassName('vm-markdown-html')[0]
-      let tagNames = Object.keys(style)
-      for (let i = 0; i < tagNames.length; i++) {
-        let _tagNames = html.getElementsByTagName(tagNames[i])
-        if (_tagNames.length > 0) {
-          for (let j = 0; j < _tagNames.length; j++) {
-            _tagNames[j].style.cssText = style[tagNames[i]]
+      if (html) {
+        let tagNames = Object.keys(style)
+        for (let i = 0; i < tagNames.length; i++) {
+          let _tagNames = html.getElementsByTagName(tagNames[i])
+          if (_tagNames.length > 0) {
+            for (let j = 0; j < _tagNames.length; j++) {
+              _tagNames[j].style.cssText = style[tagNames[i]]
+            }
           }
         }
       }

@@ -32,15 +32,15 @@ You also can open demo.vue(which in src) to learn how to use this component, but
 prop | description | type| default
 :-------: | -------  |  :-------:  |  :-------:
 value | document contents or office document's url | String | ''
-type | document type | String | 'md'
+type | document type (Now supported types are 'markdown'、'office'、'text' of 'code') | String | 'md'
+language | code language (It takes effect only when the type is 'code') | String | ''
 height | when height > 100 it means that the component's height is hight+'px', otherwise it means that the component's height is hight+'%'| Number | 90
 
-### Supported document types
+### Supported document types and their suffix(language)
 * markdown: md
 * office: docx, pptx, xlsx
 * text: txt
-* code: js, html, css, java, json, yml, ini, gitignore, bat
-
+* code: javascript(js)、html、css、java、json、typescript(ts)、cpp、xml、bash、less、nginx、php、powershell、python、scss、shell、sql、yaml、ini
 
 ## Development
 

@@ -33,15 +33,15 @@ export default {
 属性 | 说明 | 类型| 默认值
 :-------: | -------  |  :-------:  |  :-------:
 value | 文档内容或Office文档的url | String | ''
-type | 文档类型 | String | 'md'
+type | 文档类型(现在支持的类型有'markdown'、'office'、'text'、'code') | String | 'md'
+language | 代码语言(当文档类型为'code'时它才生效) | String | ''
 height | 当height > 100 时，它意味着组件的将使用绝对高度(px), 否则组件的高度将为相对高度(%)| Number | 90
 
-### 支持的文档类型
+### 支持的文档类型和他们的后缀（或代码语言）
 * markdown: md
 * office: docx, pptx, xlsx
 * text: txt
-* code: js, html, css, java, json, yml, ini, gitignore, bat
-
+* code: javascript(js)、html、css、java、json、typescript(ts)、cpp、xml、bash、less、nginx、php、powershell、python、scss、shell、sql、yaml、ini
 
 ## 开发
 

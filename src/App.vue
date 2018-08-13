@@ -28,6 +28,10 @@ export default {
     height: {
       type: Number,
       default: 90
+    },
+    language: {
+      type: String,
+      default: ''
     }
   },
   data: function () {
@@ -42,25 +46,11 @@ export default {
     }
   },
   computed: {
-    isOfficeType: function () {
-      const type = this.type
-      const officeTypes = [
-        'docx',
-        'pptx',
-        'xlsx'
-      ]
-      let result = false
-      for (let i = 0, l = officeTypes.length; i < l; i++) {
-        if (type === officeTypes[i]) {
-          result = true
-          break
-        }
-      }
-      return result
-    },
     actualValue: function () {
-      if (this.isOfficeType) {
+      if (this.type === 'office') {
         return `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
+      } else if (this.type === 'code' && this.language) {
+        return `\`\`\`${this.language}\n${this.value}\n\`\`\``
       } else {
         return this.value
       }
@@ -78,7 +68,7 @@ export default {
         this.styler = `height: ${height}px`
       } else {
         // height小于等于100时为百分比高度
-        if (this.isOfficeType) {
+        if (this.type === 'office') {
           const contentHeight = this.getClientHeight() * height / 100
           this.styler = `height: ${contentHeight}px`
         } else {
@@ -92,20 +82,17 @@ export default {
     },
     updateType: function () {
       switch (this.type) {
-        case 'md':
+        case 'markdown':
           this.parseComponet = 'Markdown'
           break
         case 'text':
           this.parseComponet = 'TextPreview'
           break
-        case 'docx':
+        case 'office':
           this.parseComponet = 'Office'
           break
-        case 'xlsx':
-          this.parseComponet = 'Office'
-          break
-        case 'pptx':
-          this.parseComponet = 'Office'
+        case 'code':
+          this.parseComponet = 'Markdown'
           break
       }
       this.setHeiht()
