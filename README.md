@@ -4,6 +4,7 @@ A vue document preview component, this component will display the contents of th
 English Readme | [中文说明书](https://github.com/cainsyake/vue-doc-preview/blob/master/README-CN.md)
 
 ## Use
+### import
 First, add this package from yarn or npm.
 ```
 yarn add vue-doc-preview
@@ -26,6 +27,14 @@ export default {
 </script>
 ```
 You also can open demo.vue(which in src) to learn how to use this component, but it is introduced directly to the component from the source code.
+
+### Example
+```html
+<VueDocPreview value="# VueDocPreview\n**Markdown Test**```" type="markdown" />
+<VueDocPreview value="newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx" type="office" />
+<VueDocPreview value="Normal Text" type="text" />
+<VueDocPreview value="function () {\n  console.log('VueDocPreview')\n}" type="code" code="javascript"/>
+```
 
 ## Config
 

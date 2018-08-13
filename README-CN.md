@@ -5,6 +5,7 @@
 
 
 ## 使用
+### 引入
 首先, 通过yarn或npm等包管理工具添加这个包.
 ```
 yarn add vue-doc-preview
@@ -28,7 +29,15 @@ export default {
 ```
 你也可以打开src目录下的demo.vue来学习如何使用这个组件，但是它(demo.vue)是直接从源代码中引入这个组件的（并非从NPM上引入）.
 
-## Config
+### 例子
+```html
+<VueDocPreview value="# VueDocPreview\n**Markdown Test**```" type="markdown" />
+<VueDocPreview value="newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx" type="office" />
+<VueDocPreview value="Normal Text" type="text" />
+<VueDocPreview value="function () {\n  console.log('VueDocPreview')\n}" type="code" code="javascript"/>
+```
+
+## 配置
 
 属性 | 说明 | 类型| 默认值
 :-------: | -------  |  :-------:  |  :-------:
