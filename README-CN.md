@@ -45,12 +45,41 @@ value | 文档内容或Office文档的url | String | ''
 type | 文档类型(现在支持的类型有'markdown'、'office'、'text'、'code') | String | 'md'
 language | 代码语言(当文档类型为'code'时它才生效) | String | ''
 height | 当height > 100 时，它意味着组件的将使用绝对高度(px), 否则组件的高度将为相对高度(%)| Number | 90
+mdStyle | Markdown视图自定义样式(当文档类型为'markdown'、'code'时它才生效) | Object | {}
 
 ### 支持的文档类型和他们的后缀（或代码语言）
 * markdown: md
 * office: docx, pptx, xlsx
 * text: txt
 * code: javascript(js)、html、css、java、json、typescript(ts)、cpp、xml、bash、less、nginx、php、powershell、python、scss、shell、sql、yaml、ini
+
+### 自定义样式
+现在，我们可以通过设置Props中的mdStryle来自定义Markdown视图的样式了。
+
+可以自定义样式的标签：pre, code, ul, ol, li, hr, blockquote, img, a, table, tr, th, td。
+
+在这个**例子**中我们将会使用自定义的Markdown视图中的代码块样式。
+```javascript
+// template
+<VueDocPreview value="# VueDocPreview" type="markdown" :mdStyle="mdStyle" />
+
+// script
+export default {
+  data: function() {
+    return {
+      mdStyle: {
+        pre: {
+          'background-color': 'rgb(187, 255, 255)'
+        },
+        code: {
+          'background-color': 'rgb(187, 255, 255)',
+          'line-height': '20px'
+        }
+      }
+    }
+  }
+}
+```
 
 ## 开发
 

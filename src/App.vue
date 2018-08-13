@@ -1,6 +1,6 @@
 <template>
   <div id="VueDocPreviewRoot" class="root" :style="styler">
-    <component :is="parseComponet" :value="actualValue"></component>
+    <component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle"></component>
   </div>
 </template>
 
@@ -32,6 +32,12 @@ export default {
     language: {
       type: String,
       default: ''
+    },
+    mdStyle: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     }
   },
   data: function () {
