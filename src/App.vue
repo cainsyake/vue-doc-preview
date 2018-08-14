@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Markdown from './components/Markdown'
 import TextPreview from './components/TextPreview'
 import Office from './components/Office'
@@ -38,10 +39,15 @@ export default {
       default: function () {
         return {}
       }
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   data: function () {
     return {
+      tempValue: '',
       parseComponet: 'Markdown',
       styler: ''
     }
@@ -53,12 +59,13 @@ export default {
   },
   computed: {
     actualValue: function () {
+      this.tempValueC()
       if (this.type === 'office') {
-        return `http://view.officeapps.live.com/op/view.aspx?src=${this.value}`
+        return `http://view.officeapps.live.com/op/view.aspx?src=${this.tempValue}`
       } else if (this.type === 'code' && this.language) {
-        return `\`\`\`${this.language}\n${this.value}\n\`\`\``
+        return `\`\`\`${this.language}\n${this.tempValue}\n\`\`\``
       } else {
-        return this.value
+        return this.tempValue
       }
     }
   },
@@ -66,6 +73,42 @@ export default {
     this.updateType()
   },
   methods: {
+    tempValueC: function () {
+      if (this.value) {
+        this.tempValue = this.value
+      } else {
+        if (this.type !== 'office') {
+          let self = this
+          this.download(this.url).then(data => {
+            self.tempValue = data
+          }).catch(err => {
+            console.error(err)
+          })
+        } else {
+          this.tempValue = this.url
+        }
+      }
+    },
+    download: function (url, onProgress) {
+      return new Promise((resolve, reject) => {
+        axios.get(url, {
+          responseType: 'blob',
+          onDownloadProgress: function (progressEvent) {
+            if (onProgress && typeof onProgress === 'function') {
+              onProgress(progressEvent) // progress callback
+            }
+          }
+        }).then(res => {
+          const reader = new FileReader()
+          reader.readAsText(new Blob([res.data]))
+          reader.onload = function () {
+            resolve(reader.result)
+          }
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    },
     setHeiht: function () {
       let height = this.height
       if (height < 0) height = 0

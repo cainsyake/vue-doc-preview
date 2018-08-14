@@ -1,6 +1,7 @@
 <template>
   <div id="app" style="height: 100%">
-    <VueDocPreview :type="type" :value="codeString" :height="80" id="vdp" language="javascript" :mdStyle="mdStyle"></VueDocPreview>
+    <button type="button" @click="changeUrl">切换</button>
+    <VueDocPreview :type="type" :value="emptyValue" :url="value" :height="80" id="vdp" language="javascript" ></VueDocPreview>
   </div>
 </template>
 
@@ -19,7 +20,9 @@ export default {
           'line-height': '20px'
         }
       },
-      type: 'code',
+      type: 'office',
+      emptyValue: '',
+      url: 'http://ic-1252421604.cosgz.myqcloud.com/admin/%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0/2%E7%BA%A7%E6%96%87%E4%BB%B6%E5%A4%B9/README.md?sign=YoQARwI0oYQgFYNcSFn6ivaKwRJhPTEyNTI0MjE2MDQmaz1BS0lEQ0tYcTlUcGRMM2UzTFZtRjdvTmwxOVRzU3EzN2FxVE4mZT0xNTM2ODA1MzI0JnQ9MTUzNDIxMzMyNCZyPTk1NjI3MDE4NiZmPS9hZG1pbi8lRTYlQjUlOEIlRTglQUYlOTUlRTQlQjglOEElRTQlQkMlQTAvMiVFNyVCQSVBNyVFNiU5NiU4NyVFNCVCQiVCNiVFNSVBNCVCOS9SRUFETUUubWQmYj1pYw==',
       value: 'newteach.pbworks.com%2Ff%2Fele%2Bnewsletter.docx',
       mdString: '# Marked\n **success**\n```javascript\nconst a = 10\nfunction () {\n  console.log(a)\n}```',
       textString: '排列数A(n, m) = n! / (n-m)!\n组合数C(n, m) = A(n, m) / m!',
@@ -44,6 +47,21 @@ export default {
       '        })\n' +
       '      }\n' +
       '    }'
+    }
+  },
+  methods: {
+    changeUrl: function () {
+      if (!this.isChange) {
+        this.emptyValue = 'http%3a%2f%2fvideo.ch9.ms%2fbuild%2f2011%2fslides%2fTOOL-532T_Sutter.pptx'
+        // this.url = this.value
+        // this.type = 'office'
+        this.isChange = true
+      } else {
+        this.emptyValue = ''
+        // this.type = 'markdown'
+        this.isChange = false
+      }
+      // this.url = 'http://ic-1252421604.cosgz.myqcloud.com/admin/%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0/README.MD?sign=AlbseDL/V3P/WyixtNlBGdbwdDJhPTEyNTI0MjE2MDQmaz1BS0lEQ0tYcTlUcGRMM2UzTFZtRjdvTmwxOVRzU3EzN2FxVE4mZT0xNTM2ODA1NTMxJnQ9MTUzNDIxMzUzMSZyPTg1NTg2Mzk2NiZmPS9hZG1pbi8lRTYlQjUlOEIlRTglQUYlOTUlRTQlQjglOEElRTQlQkMlQTAvUkVBRE1FLk1EJmI9aWM='
     }
   }
 }
