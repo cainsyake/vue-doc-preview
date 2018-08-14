@@ -10,12 +10,12 @@
   "main": "./dist/vueDocPreview.umd.min.js",
   "author": "cainsyake(cainsyake@qq.com)",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/cainsyake/vue-doc-preview.git"
+    "type": "git",
+    "url": "https://github.com/cainsyake/vue-doc-preview.git"
   },
   "bugs": {
-    "url" : "https://github.com/cainsyake/vue-doc-preview/issues",
-    "email" : "cainsyake@qq.com"
+    "url": "https://github.com/cainsyake/vue-doc-preview/issues",
+    "email": "cainsyake@qq.com"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -25,18 +25,19 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "highlight.js": "^9.12.0",
     "marked": "^0.4.0"
   },
   "devDependencies": {
-    "iview": "^3.0.0",
-    "vue": "^2.5.17",
     "@vue/cli-plugin-babel": "^3.0.0-rc.11",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.11",
     "@vue/cli-service": "^3.0.0-rc.11",
     "@vue/eslint-config-standard": "^3.0.0-rc.11",
+    "iview": "^3.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "vue": "^2.5.17",
     "vue-template-compiler": "^2.5.17"
   },
   "postcss": {
