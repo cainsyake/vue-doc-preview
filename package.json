@@ -1,6 +1,6 @@
 {
   "name": "vue-doc-preview",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A vue document preview component",
   "keywords": [
     "document",
@@ -21,8 +21,7 @@
     "serve": "vue-cli-service serve",
     "build-lib": "vue-cli-service build --target lib --name vueDocPreview ./src/index.js",
     "lint": "vue-cli-service lint",
-    "buildWc": "vue-cli-service build --target wc --name vue-doc-preview",
-    "build": "vue-cli-service build"
+    "test": "vue-cli-service serve ./test/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

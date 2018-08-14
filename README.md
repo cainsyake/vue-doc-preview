@@ -45,6 +45,7 @@ type | document type (Now supported types are 'markdown'、'office'、'text' of 
 language | code language (It takes effect only when the type is 'code') | String | ''
 height | when height > 100 it means that the component's height is hight+'px', otherwise it means that the component's height is hight+'%'| Number | 90
 mdStyle | markdown view custom style (It takes effect only when the type is 'markdown' or 'code') | Object | {}
+url | document's url, but it only takes effect only when we don't set value (this property can also be used in office documents)| String | ''
 
 ### Supported document types and their suffix(language)
 * markdown: md
@@ -92,12 +93,21 @@ yarn run serve
 yarn run build-lib
 ```
 
+### Run test for development
+```
+yarn run test
+```
+
 ### Lints and fixes files
 ```
 yarn run lint
 ```
-Markdown preview use highlight.js to make code show different colors, you are able to modify src/lib/highlight.js to support more language with code highlight.
 
+### Some tips
+1. Markdown preview use highlight.js to make code show different colors, you are able to modify src/lib/highlight.js to support more language with code highlight.
+2. You can debug the components after development by running the test environment.
+3. You can show document by a url and this component will automatically download it by the url.
+4. The priority of prop **value** is higher than that of prop **url**, if you set prop value with a nonempty value, the prop url will be ignored.
 
 ## License
 MIT

@@ -46,6 +46,7 @@ type | 文档类型(现在支持的类型有'markdown'、'office'、'text'、'co
 language | 代码语言(当文档类型为'code'时它才生效) | String | ''
 height | 当height > 100 时，它意味着组件的将使用绝对高度(px), 否则组件的高度将为相对高度(%)| Number | 90
 mdStyle | Markdown视图自定义样式(当文档类型为'markdown'、'code'时它才生效) | Object | {}
+url | 文档的url，但是它仅在我们不设置属性value时生效（office文档也可使用此属性读取） | String | ''
 
 ### 支持的文档类型和他们的后缀（或代码语言）
 * markdown: md
@@ -93,11 +94,21 @@ yarn run serve
 yarn run build-lib
 ```
 
+### 运行开发测试环境
+```
+yarn run test
+```
+
 ### 代码检查
 ```
 yarn run lint
 ```
-Markdown预览使用highlight.js使得代码展示出不同的颜色，你可以修改src/lib/highlight.js来支持更多编程语言的代码高亮（但会使编译出来的文件更庞大）。
+
+### 一些提示
+1. Markdown预览使用highlight.js使得代码展示出不同的颜色，你可以修改src/lib/highlight.js来支持更多编程语言的代码高亮（但会使编译出来的文件更庞大）。
+2. 你可以通过运行测试环境来调试开发后的组件。
+3. 你可以通过一个链接展示文档，这个组件会通过链接自动下载文档。
+4. 属性value的优先级比属性url的高，如果你设置属性value为一个非空值时，属性url会被忽略。
 
 ## 许可证
 MIT
