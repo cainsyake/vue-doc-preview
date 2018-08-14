@@ -1,6 +1,6 @@
 <template>
   <div id="app" style="height: 100%">
-    <VueDocPreview :type="type" :value="codeString" :height="80" id="vdp" language="javascript" ></VueDocPreview>
+    <VueDocPreview :type="type" :value="codeString" :height="80" id="vdp" language="javascript" :mdStyle="mdStyle"></VueDocPreview>
   </div>
 </template>
 
