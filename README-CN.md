@@ -3,6 +3,8 @@
 
 [English Readme](https://github.com/cainsyake/vue-doc-preview/blob/master/README.md) | 中文说明书
 
+[在线示例](http://vdp.cainsyake.com/)
+
 
 ## 使用
 ### 引入
