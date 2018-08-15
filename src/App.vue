@@ -1,6 +1,6 @@
 <template>
   <div id="VueDocPreviewRoot" class="root" :style="styler">
-    <component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle"></component>
+    <component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle" :textStyle="textStyle"></component>
   </div>
 </template>
 
@@ -36,9 +36,11 @@ export default {
     },
     mdStyle: {
       type: Object,
-      default: function () {
-        return {}
-      }
+      default: null
+    },
+    textStyle: {
+      type: Object,
+      default: null
     },
     url: {
       type: String,
@@ -82,6 +84,7 @@ export default {
           this.download(this.url).then(data => {
             self.tempValue = data
           }).catch(err => {
+            self.tempValue = 'Download Error!'
             console.error(err)
           })
         } else {

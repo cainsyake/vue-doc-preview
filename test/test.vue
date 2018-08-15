@@ -22,7 +22,7 @@
         <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
           <h1>Test Environment</h1>
         </Header>
-        <Content :style="{padding: '0 16px 16px', 'min-height': '700px'}">
+        <Content :style="{padding: '0 16px 16px', 'min-height': '1000px'}">
           <div style="margin: 16px 0">
             <div v-if="currentView === 'type' || currentView === 'url'">
               <Button type="primary" @click="changeType('markdown')" style="margin-right: 6px">markdown</Button>
@@ -50,7 +50,7 @@
             </div>
           </div>
           <Card>
-            <VueDocPreview :type="type" :value="value" :url="url" :height="height" :mdStyle="mdStyle" language="javascript" ></VueDocPreview>
+            <VueDocPreview :type="type" :value="value" :url="url" :height="height" :mdStyle="mdStyle" :textStyle="textStyle" language="javascript" ></VueDocPreview>
           </Card>
         </Content>
       </Layout>
@@ -69,7 +69,8 @@ export default {
     return {
       isCollapsed: false,
       currentView: 'type',
-      mdStyle: {},
+      mdStyle: null,
+      textStyle: null,
       customMdStyle: {
         pre: {
           'background-color': 'rgb(187, 255, 255)'
@@ -144,6 +145,7 @@ export default {
         this.type = 'markdown'
         this.value = this.mdString
         this.mdStyle = this.customMdStyle
+        this.textStyle = {'font-size': '22px'}
       }
     },
     changeType: function (type) {

@@ -105,7 +105,7 @@ export default {
       }
     },
     parseHtml: function () {
-      let styleObj = objectDeepMerge(this.defaultStyle, this.mdStyle)
+      let styleObj = this.mdStyle ? objectDeepMerge(this.defaultStyle, this.mdStyle) : this.defaultStyle
       let styleBlocks = Object.keys(styleObj)
       let style = {}
       styleBlocks.forEach(name => {
