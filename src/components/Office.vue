@@ -1,6 +1,6 @@
 <template>
-    <div style="height: 100%" ref="iframeContainer">
-      <iframe :src="value" frameborder="0" width="100%" height="100%"  id="officeIframe"></iframe>
+    <div style="height: 100%">
+      <iframe :src="value" frameborder="0" width="100%" height="100%" ></iframe>
     </div>
 </template>
 
@@ -19,7 +19,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

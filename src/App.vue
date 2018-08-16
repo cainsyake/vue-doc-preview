@@ -1,9 +1,3 @@
-<!--<template>-->
-  <!--<div id="VueDocPreviewRoot" class="root" :style="styler">-->
-    <!--<component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle" :textStyle="textStyle"></component>-->
-  <!--</div>-->
-<!--</template>-->
-
 <script>
 import axios from 'axios'
 import Markdown from './components/Markdown'
@@ -151,7 +145,7 @@ export default {
     }
   },
   render: function (h) {
-    let component = ''
+    let component = <div>Prop type error, Type must be markdown/office/text/code!</div>
     if (this.type === 'markdown' || this.type === 'code') {
       component = <Markdown value={this.actualValue} mdStyle={this.mdStyle} />
     } else if (this.type === 'text') {

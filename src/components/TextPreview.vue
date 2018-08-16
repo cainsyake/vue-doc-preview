@@ -1,9 +1,3 @@
-<!--<template>-->
-  <!--<div class="content" :ref="refId">-->
-    <!--<pre>{{value}}</pre>-->
-  <!--</div>-->
-<!--</template>-->
-
 <script>
 import {objectDeepMerge, objectStyleToStringStyle} from '../lib/util'
 export default {
@@ -47,8 +41,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="less">
-  .content {
-  }
-</style>
