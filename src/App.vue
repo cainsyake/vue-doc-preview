@@ -1,8 +1,8 @@
-<template>
-  <div id="VueDocPreviewRoot" class="root" :style="styler">
-    <component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle" :textStyle="textStyle"></component>
-  </div>
-</template>
+<!--<template>-->
+  <!--<div id="VueDocPreviewRoot" class="root" :style="styler">-->
+    <!--<component :is="parseComponet" :value="actualValue" :mdStyle="mdStyle" :textStyle="textStyle"></component>-->
+  <!--</div>-->
+<!--</template>-->
 
 <script>
 import axios from 'axios'
@@ -149,6 +149,24 @@ export default {
       }
       this.setHeiht()
     }
+  },
+  render: function (h) {
+    let component = ''
+    if (this.type === 'markdown' || this.type === 'code') {
+      component = <Markdown value={this.actualValue} mdStyle={this.mdStyle} />
+    } else if (this.type === 'text') {
+      component = <TextPreview value={this.actualValue} textStyle={this.textStyle} />
+    } else if (this.type === 'office') {
+      component = <Office value={this.actualValue} />
+    }
+    return (
+      <div
+        id="VueDocPreviewRoot"
+        class="root"
+        style={this.styler}>
+        {component}
+      </div>
+    )
   }
 }
 </script>

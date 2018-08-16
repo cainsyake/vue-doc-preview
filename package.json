@@ -1,6 +1,6 @@
 {
   "name": "vue-doc-preview",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A vue document preview component",
   "keywords": [
     "document",
@@ -33,6 +33,10 @@
     "@vue/cli-plugin-eslint": "^3.0.0-rc.11",
     "@vue/cli-service": "^3.0.0-rc.11",
     "@vue/eslint-config-standard": "^3.0.0-rc.11",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
     "iview": "^3.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",

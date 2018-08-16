@@ -1,8 +1,8 @@
-<template>
-  <div class="content" :ref="refId">
-    <pre>{{value}}</pre>
-  </div>
-</template>
+<!--<template>-->
+  <!--<div class="content" :ref="refId">-->
+    <!--<pre>{{value}}</pre>-->
+  <!--</div>-->
+<!--</template>-->
 
 <script>
 import {objectDeepMerge, objectStyleToStringStyle} from '../lib/util'
@@ -35,6 +35,15 @@ export default {
       let pre = el.getElementsByTagName('pre')[0]
       pre.style.cssText = objectStyleToStringStyle(styleObject)
     }
+  },
+  render: function (h) {
+    return (
+      <div
+        class="content"
+        ref={this.refId}>
+        <pre>{this.value}</pre>
+      </div>
+    )
   }
 }
 </script>
