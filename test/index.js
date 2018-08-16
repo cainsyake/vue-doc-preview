@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import test from './test'
+import dev from './dev'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 
@@ -8,5 +8,5 @@ Vue.use(iView)
 
 // 开发环境 DEMO
 new Vue({
-  render: h => h(test)
-}).$mount('#app')
+  render: h => h(dev)
+}).$mount('#dev')

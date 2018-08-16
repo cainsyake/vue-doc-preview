@@ -1,5 +1,5 @@
 <template>
-  <div id="app" style="height: 100%">
+  <div id="testUi" style="height: 100%">
     <Layout>
       <Sider collapsible :collapsed-width="78" v-model="isCollapsed">
         <div style="height: 64px; line-height: 64px; color: white; text-align: center; font-size: 20px;">Vue-Doc-Preview</div>
@@ -20,7 +20,7 @@
       </Sider>
       <Layout>
         <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
-          <h1>Test Environment</h1>
+          <h1>Dev Environment</h1>
         </Header>
         <Content :style="{padding: '0 16px 16px', 'min-height': '1000px'}">
           <div style="margin: 16px 0">
