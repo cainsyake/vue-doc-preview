@@ -47,7 +47,8 @@ value | 文档内容或Office文档的url | String | ''
 type | 文档类型(现在支持的类型有'markdown'、'office'、'text'、'code') | String | 'md'
 language | 代码语言(当文档类型为'code'时它才生效) | String | ''
 height | 当height > 100 时，它意味着组件的将使用绝对高度(px), 否则组件的高度将为相对高度(%)| Number | 90
-mdStyle | Markdown视图自定义样式(当文档类型为'markdown'、'code'时它才生效) | Object | {}
+mdStyle | Markdown视图自定义样式(当文档类型为'markdown'、'code'时它才生效) | Object | null
+textStyle | Text视图自定义样式(当文档类型为'text'时它才生效) | Object | null
 url | 文档的url，但是它仅在我们不设置属性value时生效（office文档也可使用此属性读取） | String | ''
 
 ### 支持的文档类型和他们的后缀（或代码语言）
@@ -111,6 +112,8 @@ yarn run lint
 2. 你可以通过运行测试环境来调试开发后的组件。
 3. 你可以通过一个链接展示文档，这个组件会通过链接自动下载文档。
 4. 属性value的优先级比属性url的高，如果你设置属性value为一个非空值时，属性url会被忽略。
+
+[这个组件的设计和实现过程](https://blogs.cainsyake.com/2018/08/14/vue%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5-vue-doc-preview/)
 
 ## 许可证
 MIT

@@ -46,7 +46,8 @@ value | document contents or office document's url | String | ''
 type | document type (Now supported types are 'markdown'、'office'、'text' of 'code') | String | 'md'
 language | code language (It takes effect only when the type is 'code') | String | ''
 height | when height > 100 it means that the component's height is hight+'px', otherwise it means that the component's height is hight+'%'| Number | 90
-mdStyle | markdown view custom style (It takes effect only when the type is 'markdown' or 'code') | Object | {}
+mdStyle | markdown view custom style (It takes effect only when the type is 'markdown' or 'code') | Object | null
+textStyle | text view custom style (It takes effect only when the type is 'text') | Object | null
 url | document's url, but it only takes effect only when we don't set value (this property can also be used in office documents)| String | ''
 
 ### Supported document types and their suffix(language)
