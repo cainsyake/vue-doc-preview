@@ -21,7 +21,8 @@
     "serve": "vue-cli-service serve",
     "build-lib": "vue-cli-service build --target lib --name vueDocPreview ./src/index.js",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service serve ./test/index.js"
+    "test": "vue-cli-service serve ./test/index.js",
+    "build": "vue-cli-service build ./test/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
