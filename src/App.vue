@@ -57,7 +57,7 @@ export default {
     actualValue: function () {
       this.tempValueC()
       if (this.type === 'office') {
-        return `http://view.officeapps.live.com/op/view.aspx?src=${this.tempValue}`
+        return `https://view.officeapps.live.com/op/view.aspx?src=${this.tempValue}`
       } else if (this.type === 'code' && this.language) {
         return `\`\`\`${this.language}\n${this.tempValue}\n\`\`\``
       } else {
