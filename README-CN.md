@@ -50,6 +50,7 @@ height | 当height > 100 时，它意味着组件的将使用绝对高度(px), �
 mdStyle | Markdown视图自定义样式(当文档类型为'markdown'、'code'时它才生效) | Object | null
 textStyle | Text视图自定义样式(当文档类型为'text'时它才生效) | Object | null
 url | 文档的url，但是它仅在我们不设置属性value时生效（office文档也可使用此属性读取） | String | ''
+requestConfig | [axios config](https://github.com/axios/axios#request-config) | Object | {}
 
 ### 支持的文档类型和他们的后缀（或代码语言）
 * markdown: md

@@ -49,6 +49,7 @@ height | when height > 100 it means that the component's height is hight+'px', o
 mdStyle | markdown view custom style (It takes effect only when the type is 'markdown' or 'code') | Object | null
 textStyle | text view custom style (It takes effect only when the type is 'text') | Object | null
 url | document's url, but it only takes effect only when we don't set value (this property can also be used in office documents)| String | ''
+requestConfig | [axios config](https://github.com/axios/axios#request-config) | Object | {}
 
 ### Supported document types and their suffix(language)
 * markdown: md

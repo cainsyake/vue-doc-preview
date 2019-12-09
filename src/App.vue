@@ -4,6 +4,11 @@ import Markdown from './components/Markdown'
 import TextPreview from './components/TextPreview'
 import Office from './components/Office'
 
+const defaultRequestConfig = {
+  method: 'get',
+  responseType: 'blob'
+}
+
 export default {
   name: 'app',
   components: {
@@ -39,6 +44,12 @@ export default {
     url: {
       type: String,
       default: ''
+    },
+    requestConfig: {
+      type: Object,
+      default () {
+        return {}
+      }
     }
   },
   data: function () {
@@ -75,7 +86,8 @@ export default {
       } else {
         if (this.type !== 'office') {
           let self = this
-          this.download(this.url).then(data => {
+          Object.assign(defaultRequestConfig, this.requestConfig, {url: this.url})
+          this.download(defaultRequestConfig).then(data => {
             self.tempValue = data
           }).catch(err => {
             self.tempValue = 'Download Error!'
@@ -86,16 +98,9 @@ export default {
         }
       }
     },
-    download: function (url, onProgress) {
+    download: function (config) {
       return new Promise((resolve, reject) => {
-        axios.get(url, {
-          responseType: 'blob',
-          onDownloadProgress: function (progressEvent) {
-            if (onProgress && typeof onProgress === 'function') {
-              onProgress(progressEvent) // progress callback
-            }
-          }
-        }).then(res => {
+        axios(config).then(res => {
           const reader = new FileReader()
           reader.readAsText(new Blob([res.data]))
           reader.onload = function () {
