@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.11",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.11",
-    "@vue/cli-service": "^3.0.0-rc.11",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-standard": "^3.0.0-rc.11",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-plugin-syntax-jsx": "^6.18.0",
@@ -40,7 +40,7 @@
     "babel-preset-env": "^1.7.0",
     "iview": "^3.0.0",
     "less": "^3.0.4",
-    "less-loader": "^4.1.0",
+    "less-loader": "^11.1.0",
     "vue": "^2.5.17",
     "vue-template-compiler": "^2.5.17"
   },
